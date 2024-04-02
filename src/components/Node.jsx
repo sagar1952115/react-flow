@@ -5,6 +5,7 @@ import message from "../assets/message.svg";
 
 //custome node
 function Node({ data, selected }) {
+  console.log(data);
   return (
     <div
       className={`w-40  overflow-hidden shadow-md rounded-md bg-white   ${

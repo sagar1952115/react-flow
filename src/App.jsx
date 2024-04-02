@@ -28,11 +28,16 @@ import Navbar from "./components/Navbar.jsx";
 const flowKey = "flow-key";
 
 // Initial node setup
+const generateId = () => {
+  const timestamp = Date.now(); // Get current timestamp (milliseconds since Unix epoch)
+  const random = Math.floor(Math.random() * 1000); // Generate a random number between 0 and 999
+  return `node_${timestamp}_${random}`;
+};
 const initialNodes = [
   {
-    id: "1",
+    id: generateId(),
     type: "textnode",
-    data: { label: "input nodes" },
+    data: { label: "Test message" },
     position: { x: 250, y: 5 },
   },
 ];
@@ -40,11 +45,6 @@ const initialNodes = [
 let id = 0;
 
 // Function for generating unique IDs for nodes
-const generateId = () => {
-  const timestamp = Date.now(); // Get current timestamp (milliseconds since Unix epoch)
-  const random = Math.floor(Math.random() * 1000); // Generate a random number between 0 and 999
-  return `node_${timestamp}_${random}`;
-};
 
 // App component
 const App = () => {
@@ -209,7 +209,7 @@ const App = () => {
         id: generateId(),
         type,
         position,
-        data: { label: `${type}` },
+        data: { label: `Test Message` },
       };
       setNodes((nds) => nds.concat(newNode));
     },
